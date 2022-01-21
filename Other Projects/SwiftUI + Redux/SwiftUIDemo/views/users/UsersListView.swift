@@ -24,7 +24,8 @@ struct UsersListView : View {
                 }
                 Section {
                     ForEach(state.usersState.users) {user in
-                        NavigationButton(destination: UserDetailView(userId: user.id)) {
+                        NavigationLink(destination: UserDetailView(userId: user.id)
+                            .environmentObject(self.state)) {
                             UserRow(user: user)
                         }
                     }
@@ -32,7 +33,7 @@ struct UsersListView : View {
                         .onMove(perform: move)
                 }
             }
-                .listStyle(.grouped)
+                .listStyle(GroupedListStyle())
                 .navigationBarTitle(Text("Users (\(state.usersState.users.count))"))
                 .navigationBarItems(trailing: EditButton())
         }

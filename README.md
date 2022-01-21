@@ -1,16 +1,27 @@
 ## `SwiftUI` Examples
 
-<a href="https://itunes.apple.com/app/id1446635818" target="_blank"><img align="left" src="https://github.com/ivanvorobei/SwiftUI/blob/master/Resources/icon.png" width="70"/></a>
+<img align="left" src="Previews/animatable-cards.gif" width="280">
+
+### About
 
 Examples projects using `SwiftUI` & `Combine`.  
-Include Layout, UI, Animations, Gestures, Draw and Data. See projects files in `Examples` folder. If you have project, make a pull request or create issue with link to repo.
+Include Layout, UI, Animations, Gestures, Draw and Data.
+
+See projects files in `Files` & `Other Projects` folders. If you have project, make a pull request or create issue with link to repo.
 
 Interested in UI and animations in `UIKit`?  
-See [awesome-ios-ui](https://github.com/ivanvorobei/awesome-ios-ui) pack with UI elements:
+See [awesome-ios-ui](https://github.com/ivanvorobei/awesome-ios-ui) pack with UI elements.
 
-[![awesome-ios-ui](https://github.com/ivanvorobei/SPPermission/blob/master/Resources/Buttons/Awesome%20iOS%20UI%20-%201.svg)](https://github.com/ivanvorobei/awesome-ios-ui)
+If you like the project, don't forget to `put star ★` and follow me on GitHub:
 
-If you like the project, do not forget to `put star ★`
+<p float="left">
+    <a href="https://github.com/ivanvorobei">
+        <img src="https://github.com/ivanvorobei/Readme/blob/main/Buttons/follow-me-ivanvorobei.svg">
+    </a>
+    <a href="https://opensource.ivanvorobei.by">
+        <img src="https://github.com/ivanvorobei/Readme/blob/main/Buttons/more-libraries.svg">
+    </a>
+</p>
 
 ## Navigate
 
@@ -40,9 +51,20 @@ If you like the project, do not forget to `put star ★`
 - [Animating Views And Transitions](#animating-views-and-transitions)
 - [Jike](#jike)
 - [Flux](#flux)
-- [SwiftUI Download Progress View](#SwiftUIDownloadView)
 - [PureGenius](#puregenius)
+- [SwiftUI Download Progress View](#SwiftUIDownloadView)
 - [SwiftUI SideMenu](#SwiftUI-SideMenu)
+- [SwiftUI Currency App](#SwiftUI-Currency)
+- [SwiftUI Weather App](#SwiftUI-Weather)
+- [DesignCode SwiftUI App](https://github.com/mythxn/DesignCode)
+- [SwiftUI SlideToOpen](#MTSlideToOpen-SwiftUI)
+- [Currency Converter & Calculator](#transition-and-blur)
+- [FlipClock-SwiftUI](#FlipClock-SwiftUI)
+- [Countdown Film Clutter](#CountdownFilmClutter-SwiftUI)
+- [SpotlightSearch](#SpotlightSearch)
+- [Growing text view in SwiftUI](#Growing-text-view-in-SwiftUI)
+- [Calculator Clone for iPadOS](https://github.com/bofeiw/ios-calculator-clone-for-ipados)
+- [MGFlipView](#MGFlipView)
 
 Also include:
 - Movie
@@ -59,32 +81,14 @@ Also include:
 
 <img align="left" src="Previews/animatable-cards.gif" width="280">
 
-#### Gester
-
-In class add property:
-
-```swift
-@GestureState var dragState = DragState.inactive
-```
-
-Class `DragState` see in file. Also you can see it in [apple's example page](https://developer.apple.com/documentation/swiftui/gestures/composing_swiftui_gestures).
-
-To card add `gester` and `offset`:
-
-```swift
-.offset(
-    x: dragState.translation.width,
-    y: dragState.translation.height
-)
-.gesture(dragGester)
-```
-
 #### 3D
 
 For add 3D rotation for back cards use code:
 
 ```swift
-.rotation3DEffect(Angle(degrees: dragState.isActive ? 0 : 60), axis: (x: 10.0, y: 10.0, z: 10.0))
+.rotation3DEffect(
+	Angle(degrees: dragState.isActive ? 0 : 60), axis: (x: 10.0, y: 10.0, z: 10.0)
+ )
 ```
 
 For medium card use 30 angles.
@@ -117,14 +121,6 @@ For change state using `@State` as property:
 
 ```swift
 @State var show = false
-```
-
-#### Frame
-
-Size of area attach to state of property `show`:
-
-```swift
-.frame(width: show ? 350 : 290, height: show ? 420 : 260)
 ```
 
 ## Transition And Blur
@@ -212,18 +208,115 @@ Size of area attach to state of property `show`:
 
 <img src="Resources/Flux.gif" width="260">
 
-### SwiftUIDownloadView
-
-<img src="Resources/SwiftUIDownloadView.gif" width="294">
 #### PureGenius
 
 <img src="Resources/PureGenius.gif" width="260">
 
+### SwiftUIDownloadView
+
+<img src="Resources/SwiftUIDownloadView.gif" width="294">
+
 ### SwiftUI SideMenu
 
+[Source](https://github.com/Vidhyadharan24/SideMenu)
+
 <img src="Resources/SwiftUISideMenu.gif" width="300">
+
+### SwiftUI Currency
+
+[Source](https://github.com/alexliubj/SwiftUI-Currency-Converter)
+
+<img src="Resources/SwiftUICurrency.png" width="300">
+
+### SwiftUI Weather
+
+[Source](https://github.com/bpisano/Weather) and [Tutorial](https://medium.com/lunabee-studio/building-a-weather-app-with-swiftui-4ec2743ff615)
+
+<img src="https://github.com/bpisano/Weather/blob/master/Images/Banner.png" width="650">
+
+### DesignCode SwiftUI
+[Source](https://github.com/mythxn/DesignCode/tree/master)
+
+<img src="https://github.com/mythxn/DesignCode-SwiftUI/blob/master/preview.gif" height=450><img src="https://i.imgur.com/N9HfWdD.png" height=450>
+
+### MTSlideToOpen-SwiftUI
+[Source](https://github.com/lemanhtien/MTSlideToOpen-SwiftUI)
+
+<a href="url"><img src="https://raw.githubusercontent.com/lemanhtien/MTSlideToOpen-SwiftUI/master/example.gif" align="center" height="500" ></a>
+
+### Currency Converter & Calculator
+
+[Source](https://github.com/CurrencyConverterCalculator/iosCCC)
+
+<img src="https://github.com/CurrencyConverterCalculator/iosCCC/blob/master/dark.gif" width="320px"/> <img src="https://github.com/CurrencyConverterCalculator/iosCCC/blob/master/light.gif" width="320px"/>
+### FlipClock-SwiftUI
+[Source](https://github.com/elpassion/FlipClock-SwiftUI)
+
+|Light|Dark|
+|:-:|:-:|
+|<img src="https://github.com/elpassion/FlipClock-SwiftUI/blob/master/Gifs/flip_clock_light.gif" width="260">|<img src="https://github.com/elpassion/FlipClock-SwiftUI/blob/master/Gifs/flip_clock_dark.gif" width="260">|
+
+### CountdownFilmClutter-SwiftUI
+
+[Source](https://github.com/elpassion/CountdownFilmClutter-SwiftUI)
+
+<img src="https://github.com/elpassion/CountdownFilmClutter-SwiftUI/blob/master/Gifs/countdown_film_clutter.gif">
+
+### SpotlightSearch
+[Source](https://github.com/boraseoksoon/SpotlightSearch)
+
+|Light|Dark|
+|:-:|:-:|
+|<img src="https://github.com/boraseoksoon/SpotlightSearch/blob/master/gif/white_theme.gif" width="260">|<img src="https://github.com/boraseoksoon/SpotlightSearch/blob/master/gif/dark_theme.gif" width="260">|
+
+### SwiftUI Weather App with MVVM and CoreML
+
+[Source](https://github.com/necatievrenyasar/SwiftUI-WeatherApp)
+
+<img src="https://user-images.githubusercontent.com/1447937/72296817-96f10580-366b-11ea-957c-023efeac958f.png" width="300">
+
+### Growing text view in SwiftUI
+[Source](https://github.com/Zaprogramiacz/GrowingTextView)
+
+<img src="https://github.com/Zaprogramiacz/GrowingTextView/blob/master/Resources/growing_text_view.gif">
+
+### MGFlipView
+[Source](https://github.com/Zaprogramiacz/MGFlipView)
+
+<img src="https://github.com/Zaprogramiacz/MGFlipView/blob/master/Examples/flip_view_example.gif">
 
 ### Authors
 
 Thanks for [Jinxiansen](https://github.com/Jinxiansen), [ra1028](https://github.com/ra1028), [timdonnelly](https://github.com/timdonnelly), [TwoLivesLeft](https://github.com/TwoLivesLeft), [devxoul](https://github.com/devxoul), [cmtrounce](https://github.com/cmtrounce), [unixzii](https://github.com/unixzii), [ra1028](https://github.com/ra1028) for examples project.
 
+## Other Projects
+
+I love being helpful. Here I have provided a list of libraries that I keep up to date. For see `video previews` of libraries without install open [opensource.ivanvorobei.by](https://opensource.ivanvorobei.by) website.<br>
+I have libraries with native interface and managing permissions. Also available pack of useful extensions for boost your development process.
+
+<p float="left">
+    <a href="https://opensource.ivanvorobei.by">
+        <img src="https://github.com/ivanvorobei/Readme/blob/main/Buttons/more-libraries.svg">
+    </a>
+        <a href="https://xcodeshop.ivanvorobei.by">
+        <img src="https://github.com/ivanvorobei/Readme/blob/main/Buttons/xcode-shop.svg">
+    </a>
+</p>
+
+## Russian Community
+
+Подписывайся в телеграмм-канал, если хочешь получать уведомления о новых туториалах.<br>
+Со сложными и непонятными задачами помогут в чате.
+
+<p float="left">
+    <a href="https://tutorials.ivanvorobei.by/telegram/channel">
+        <img src="https://github.com/ivanvorobei/Readme/blob/main/Buttons/open-telegram-channel.svg">
+    </a>
+    <a href="https://tutorials.ivanvorobei.by/telegram/chat">
+        <img src="https://github.com/ivanvorobei/Readme/blob/main/Buttons/russian-community-chat.svg">
+    </a>
+</p>
+
+Видео-туториалы выклыдываю на [YouTube](https://tutorials.ivanvorobei.by/youtube):
+
+[![Tutorials on YouTube](https://cdn.ivanvorobei.by/github/readme/youtube-preview.jpg)](https://tutorials.ivanvorobei.by/youtube)

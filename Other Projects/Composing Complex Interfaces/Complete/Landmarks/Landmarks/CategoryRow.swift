@@ -18,10 +18,10 @@ struct CategoryRow: View {
                 .padding(.leading, 15)
                 .padding(.top, 5)
             
-            ScrollView(showsHorizontalIndicator: false) {
+            ScrollView(.horizontal) {
                 HStack(alignment: .top, spacing: 0) {
-                    ForEach(self.items.identified(by: \.name)) { landmark in
-                        NavigationButton(
+                    ForEach(self.items, id: \.name) { landmark in
+                        NavigationLink(
                             destination: LandmarkDetail(
                                 landmark: landmark
                             )
@@ -45,7 +45,7 @@ struct CategoryItem: View {
                 .renderingMode(.original)
                 .cornerRadius(5)
             Text(landmark.name)
-                .color(.primary)
+                .foregroundColor(.primary)
                 .font(.caption)
         }
         .padding(.leading, 15)

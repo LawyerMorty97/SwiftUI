@@ -1,24 +1,12 @@
 import SwiftUI
 import Combine
 
-final class SearchUserViewModel: BindableObject {
-    var didChange = PassthroughSubject<SearchUserViewModel, Never>()
+final class SearchUserViewModel: ObservableObject {
+    @Published private(set) var users = [User]()
 
-    private(set) var users = [User]() {
-        didSet {
-            didChange.send(self)
-        }
-    }
+    @Published private(set) var userImages = [User: UIImage]()
 
-    private(set) var userImages = [User: UIImage]() {
-        didSet {
-            didChange.send(self)
-        }
-    }
-
-    private var cancellable: Cancellable? {
-        didSet { oldValue?.cancel() }
-    }
+    @Published private var cancellable: Cancellable?
 
     func search(name: String) {
         guard !name.isEmpty else {
@@ -36,10 +24,10 @@ final class SearchUserViewModel: BindableObject {
         cancellable = assign
 
         URLSession.shared.send(request: request)
-            .map { $0.data }
             .decode(type: SearchUserResponse.self, decoder: JSONDecoder())
             .map { $0.items }
             .replaceError(with: [])
+            .receive(on: DispatchQueue.main)
             .receive(subscriber: assign)
     }
 
@@ -50,10 +38,11 @@ final class SearchUserViewModel: BindableObject {
 
         let request = URLRequest(url: user.avatar_url)
         URLSession.shared.send(request: request)
-            .map { UIImage(data: $0.data) }
+            .map { UIImage(data: $0) }
             .replaceError(with: nil)
             .eraseToAnyPublisher()
-            .receive(subscriber: Subscribers.Sink<AnyPublisher<UIImage?, Never>> { [weak self] image in
+            .receive(on: DispatchQueue.main)
+            .receive(subscriber: Subscribers.Sink<UIImage?, Never>(receiveCompletion: {_ in}) { [weak self] image in
                 self?.userImages[user] = image
             })
     }

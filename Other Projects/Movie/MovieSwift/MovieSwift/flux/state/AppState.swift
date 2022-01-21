@@ -10,8 +10,8 @@ import Foundation
 import SwiftUI
 import Combine
 
-final class AppState: BindableObject {
-    var didChange = PassthroughSubject<AppState, Never>()
+final class AppState: ObservableObject {
+    var objectWillChange = PassthroughSubject<AppState, Never>()
     
     var moviesState: MoviesState
     
@@ -21,7 +21,9 @@ final class AppState: BindableObject {
     
     func dispatch(action: Action) {
         moviesState = MoviesStateReducer().reduce(state: moviesState, action: action)
-        didChange.send(self)
+        DispatchQueue.main.async {
+            self.objectWillChange.send(self)
+        }
     }
 }
 
